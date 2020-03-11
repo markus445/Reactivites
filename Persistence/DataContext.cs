@@ -15,9 +15,9 @@ namespace Persistence
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.Entity<Value>().HasData(
-                    new Value {Id = 1, Name = "Markus1"},
-                    new Value {Id = 2, Name = "Markus2"},
-                    new Value {Id = 3, Name = "Markus3"}
+                    new Value {Id = 1, Name = "Values101"},
+                    new Value {Id = 2, Name = "Values102"},
+                    new Value {Id = 3, Name = "Values103"}
                 );
         }
     }
