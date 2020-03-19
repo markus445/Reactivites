@@ -32,7 +32,8 @@ namespace API
             {
                 opt.AddPolicy("CorsPolicy", policy =>
                 {
-                    policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                    //policy.AllowAnyHeader().AllowAnyMethod().WithOrigins("http://localhost:3000");
+                    policy.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin();
                 });
             });
             services.AddMediatR(typeof(List.Handler).Assembly);
@@ -49,12 +50,11 @@ namespace API
             }
             app.UseRouting();
  
-            app.UseCors();
+            app.UseCors("CorsPolicy");
             
             app.UseEndpoints(endpoints =>
             {
-                //endpoints.
-                endpoints.MapControllers().RequireCors("CorsPolicy");
+                endpoints.MapControllers();
             });
         }
     }
